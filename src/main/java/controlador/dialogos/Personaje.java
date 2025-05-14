@@ -22,6 +22,8 @@ public class Personaje {
         
         System.out.println("asi que cambie juguemos un jueguito de numeros JA JA JA ");
 
+        System.out.println("chao");
+
 
     }
 }
