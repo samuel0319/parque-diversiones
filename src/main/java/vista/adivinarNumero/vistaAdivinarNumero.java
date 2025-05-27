@@ -18,7 +18,7 @@ public class vistaAdivinarNumero extends JFrame{
     public vistaAdivinarNumero(usuario user) {
         this.user = user;
 
-        campoNumero = new JTextField(10);
+        campoNumero = new JTextField(15);
         botonAdivinar = new JButton("Adivinar");
         etiquetaMensaje = new JLabel("Introduce un número del 1 al 10");
         volverBtn = new JButton("Volver al Menú");
