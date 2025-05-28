@@ -1,3 +1,5 @@
+// vistas hechas con chat gpt y minimos cambios por el usuario
+
 package main.java.vista.menuVista;
 
 import java.awt.*;

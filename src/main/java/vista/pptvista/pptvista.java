@@ -1,3 +1,5 @@
+// vistas hechas con chat gpt y minimos cambios por el usuario
+
 package main.java.vista.pptvista;
 
 import java.awt.*;
@@ -47,9 +49,11 @@ public class pptvista extends JFrame {
         String mensaje = "Tú: " + opciones[eleccionJugador] + " - PC: " + opciones[eleccionPC] + " → ";
 
         if (resultado == 1) {
-            mensaje += "¡Ganaste!";
+            user.sumarBoletos(100);
+            mensaje += "¡Ganaste! "+ user.getterBoletos();
         } else if (resultado == 2) {
-            mensaje += "Perdiste.";
+            user.resBoletos(50);
+            mensaje += "Perdiste. "+ user.getterBoletos();
         } else {
             mensaje += "Empate.";
         }

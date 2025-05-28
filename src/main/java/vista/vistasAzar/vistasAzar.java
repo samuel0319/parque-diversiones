@@ -1,19 +1,24 @@
+// vistas hechas con chat gpt y minimos cambios por el usuario
+
 package main.java.vista.vistasAzar;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import javax.swing.*;
 import main.java.controlador.juegos.azar;
+import main.java.db.usuario;
 
 public class vistasAzar extends JFrame {
 
     private JLabel resultadoLabel;
+    private usuario user;
 
-    public vistasAzar() {
+    public vistasAzar(usuario user) {
+        this.user = user;
+
         setTitle("Generador de Símbolos Aleatorios");
-        setSize(400, 220);
+        setSize(500, 320);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null); // Centrar ventana
 
@@ -37,9 +42,13 @@ public class vistasAzar extends JFrame {
 
                 String textoResultado = resultado[0] + "  " + resultado[1] + "  " + resultado[2];
 
-                // Verificar si todos los símbolos son iguales
-                if (resultado[0].equals(resultado[1]) && resultado[1].equals(resultado[2])) {
-                    textoResultado += "  🎉 ¡Ganaste!";
+                // Verificar si tienes un par
+                if (resultado[0].equals(resultado[1]) || resultado[1].equals(resultado[2])) {
+                    user.sumarBoletos(100);
+                    textoResultado += "¡Ganaste 100 boletos! Total: " + user.getterBoletos();
+                } else {
+                    user.resBoletos(50); 
+                    textoResultado += "Intenta de nuevo. -50 boletos. Total: " + user.getterBoletos();
                 }
 
                 resultadoLabel.setText(textoResultado);
@@ -50,12 +59,5 @@ public class vistasAzar extends JFrame {
 
         // Agregar panel a la ventana
         add(panel);
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            vistasAzar ventana = new vistasAzar();
-            ventana.setVisible(true);
-        });
     }
 }

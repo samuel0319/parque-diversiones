@@ -1,3 +1,5 @@
+// vistas hechas con chat gpt y minimos cambios por el usuario
+
 package main.java.vista.menuJuegos;
 
 import java.awt.*;
@@ -6,6 +8,7 @@ import main.java.db.usuario;
 import main.java.vista.adivinarNumero.vistaAdivinarNumero;
 import main.java.vista.menuVista.menuVista;
 import main.java.vista.pptvista.pptvista;
+import main.java.vista.vistasAzar.vistasAzar;
 
 public class menuJuegos extends JFrame {
 
@@ -28,18 +31,25 @@ public class menuJuegos extends JFrame {
         panelBotones.setBorder(BorderFactory.createEmptyBorder(20, 50, 20, 50));
 
         // Juego: Adivinar Número
-        JButton btnAdivinar = new JButton("🎯 Adivinar Número");
+        JButton btnAdivinar = new JButton("Adivinar Número");
         btnAdivinar.addActionListener(e -> {
             new vistaAdivinarNumero(user).setVisible(true);
             dispose();
         });
 
         // Juego: Piedra Papel Tijera
-        JButton btnppt = new JButton("✊✋✌️ Piedra Papel Tijera");
+        JButton btnppt = new JButton("Piedra Papel Tijera");
         btnppt.addActionListener(e -> {
             new pptvista(user).setVisible(true);
             dispose();
         });
+
+        // Juego: slot machine
+            JButton btnvistasAzar = new JButton("Slot machine");
+            btnvistasAzar.addActionListener(e -> {
+                new vistasAzar(user).setVisible(true);
+                dispose();
+            });
 
         // Juego futuro (placeholder)
         JButton btnProximamente = new JButton("🕹️ Juego Próximamente");
@@ -54,7 +64,8 @@ public class menuJuegos extends JFrame {
 
         // Agregar botones al panel
         panelBotones.add(btnAdivinar);
-        panelBotones.add(btnppt); // ← SE AGREGÓ ESTA LÍNEA
+        panelBotones.add(btnvistasAzar);
+        panelBotones.add(btnppt);
         panelBotones.add(btnProximamente);
         panelBotones.add(btnVolver);
 
