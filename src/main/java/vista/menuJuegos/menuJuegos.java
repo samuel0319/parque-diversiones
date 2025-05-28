@@ -5,6 +5,7 @@ import javax.swing.*;
 import main.java.db.usuario;
 import main.java.vista.adivinarNumero.vistaAdivinarNumero;
 import main.java.vista.menuVista.menuVista;
+import main.java.vista.pptvista.pptvista;
 
 public class menuJuegos extends JFrame {
 
@@ -33,6 +34,13 @@ public class menuJuegos extends JFrame {
             dispose();
         });
 
+        // Juego: Piedra Papel Tijera
+        JButton btnppt = new JButton("✊✋✌️ Piedra Papel Tijera");
+        btnppt.addActionListener(e -> {
+            new pptvista(user).setVisible(true);
+            dispose();
+        });
+
         // Juego futuro (placeholder)
         JButton btnProximamente = new JButton("🕹️ Juego Próximamente");
         btnProximamente.setEnabled(false);
@@ -44,7 +52,9 @@ public class menuJuegos extends JFrame {
             dispose();
         });
 
+        // Agregar botones al panel
         panelBotones.add(btnAdivinar);
+        panelBotones.add(btnppt); // ← SE AGREGÓ ESTA LÍNEA
         panelBotones.add(btnProximamente);
         panelBotones.add(btnVolver);
 

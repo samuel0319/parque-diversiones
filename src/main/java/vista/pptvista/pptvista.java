@@ -1,22 +1,23 @@
 package main.java.vista.pptvista;
 
-import main.java.controlador.juegos.ppt;
-
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javax.swing.*;
+import main.java.controlador.juegos.ppt;
+import main.java.db.usuario; 
 
 public class pptvista extends JFrame {
 
     private ppt juego = new ppt();
 
+    private usuario user;
     private JButton btnPiedra = new JButton("Piedra");
     private JButton btnPapel = new JButton("Papel");
     private JButton btnTijera = new JButton("Tijera");
     private JLabel lblResultado = new JLabel("Elige una opción", SwingConstants.CENTER);
 
-    public pptvista() {
+    public pptvista(usuario user) {
+        this.user = user;
+
         setTitle("Piedra, Papel o Tijera");
         setSize(400, 200);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -54,11 +55,5 @@ public class pptvista extends JFrame {
         }
 
         lblResultado.setText(mensaje);
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            new pptvista().setVisible(true);
-        });
     }
 }
